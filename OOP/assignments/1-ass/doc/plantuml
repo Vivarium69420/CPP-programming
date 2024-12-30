@@ -1,0 +1,50 @@
+@startuml
+class Officer {
+  - name: String
+  - age: Integer
+  - gender: String
+  - address: String
+  + getName(): String
+  + setName(name: String): void
+  + getAge(): Integer
+  + setAge(age: Integer): void
+  + getGender(): String
+  + setGender(gender: String): void
+  + getAddress(): String
+  + setAddress(address: String): void
+  + printDetails(): void {virtual}
+}
+
+class Engineer {
+  - speciality: String
+  + getSpeciality(): String
+  + setSpeciality(speciality: String): void
+  + printDetails(): void {overridden}
+}
+
+class Worker {
+  - level: Integer
+  + getLevel(): Integer
+  + setLevel(level: Integer): void
+  + printDetails(): void {overridden}
+}
+
+class Staff {
+  - task: String
+  + getTask(): String
+  + setTask(task: String): void
+  + printDetails(): void {overridden}
+}
+
+class OfficerManager {
+  - officers: List<Officer *>
+  + add(officer: Officer *): void
+  + searchByName(name: String): Officer *
+  + showList(): void
+}
+
+Officer <|-- Engineer
+Officer <|-- Worker
+Officer <|-- Staff
+OfficerManager *-- "0..*" Officer
+@enduml
