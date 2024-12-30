@@ -6,13 +6,12 @@
 #include <utility>
 #include <vector>
 
-template <typename KeyType, typename ValueType>
-class UnorderedMap {
- private:
+template <typename KeyType, typename ValueType> class UnorderedMap {
+private:
   size_t bucketCount;
   std::vector<std::list<std::pair<KeyType, ValueType>>> buckets;
 
- public:
+public:
   UnorderedMap(size_t bucketCount = 8);
   ~UnorderedMap();
 
