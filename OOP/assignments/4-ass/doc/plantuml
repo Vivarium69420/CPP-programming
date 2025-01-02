@@ -1,0 +1,36 @@
+@startuml
+
+Hotel o-- "0..1" Customer
+class Customer {
+  - fullName : String
+  - age : int
+  - ID : String 
+  - rentalDays : int
+  - roomType : String
+  + getDetails() : String
+  + getFullName() : String
+  + setFullName(name : String) : void
+  + getAge() : int
+  + setAge(age : int) : void
+  + getID() : String
+  + setID(ID : String) : void
+  + getRentalDays() : int
+  + setRentalDays(days : int) : void
+  + getRoomType() : String
+  + setRoomType(type : String) : void
+}
+
+class Hotel {
+  - customers : list<unique_ptr<Customer>>
+  - rooms : map<String, int>
+  - addCus(unique_ptr<Customer> customer) : void
+  - displayCus() : void
+  - searchByCusID(ID : String) : void
+  - displayRoomType(type: String): void
+  - getValidIntInput(min: int, max: int): int
+  + addCustomer() : void
+  + displayCustomers() : void
+  + searchByCustomerID() : void
+  + displayRoomType(): void
+}
+@enduml
