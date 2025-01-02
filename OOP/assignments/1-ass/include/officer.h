@@ -1,23 +1,3 @@
-/*
- * ┌───────────────────────────────────┐
-   │Officer                            │
-   ├───────────────────────────────────┤
-   │- name: String                     │
-   │- age: Integer                     │
-   │- gender: String                   │
-   │- address: String                  │
-   ├───────────────────────────────────┤
-   │+ getName(): String                │
-   │+ setName(name: String): void      │
-   │+ getAge(): Integer                │
-   │+ setAge(age: Integer): void       │
-   │+ getGender(): String              │
-   │+ setGender(gender: String): void  │
-   │+ getAddress(): String             │
-   │+ setAddress(address: String): void│
-   └───────────────────────────────────┘
- * */
-
 #ifndef OFFICER_H
 #define OFFICER_H
 

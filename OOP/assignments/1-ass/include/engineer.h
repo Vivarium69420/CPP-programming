@@ -1,14 +1,3 @@
-/*
- * ┌───────────────────────────────────────────┐
- * │ Engineer                                  │
- * ├───────────────────────────────────────────┤
- * │ - speciality: String                      │
- * ├───────────────────────────────────────────┤
- * │ + getSpeciality(): String                 │
- * │ + setSpeciality(speciality: String): void │
- * └───────────────────────────────────────────┘
- * */
-
 #ifndef ENGINEER_H
 #define ENGINEER_H
 

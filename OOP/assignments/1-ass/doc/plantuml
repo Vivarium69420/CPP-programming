@@ -19,29 +19,34 @@ class Engineer {
   - speciality: String
   + getSpeciality(): String
   + setSpeciality(speciality: String): void
-  + printDetails(): void {overridden}
+  + printDetails(): void {override}
 }
 
 class Worker {
   - level: Integer
   + getLevel(): Integer
   + setLevel(level: Integer): void
-  + printDetails(): void {overridden}
+  + printDetails(): void {override}
 }
 
 class Staff {
   - task: String
   + getTask(): String
   + setTask(task: String): void
-  + printDetails(): void {overridden}
+  + printDetails(): void {override}
 }
 
 class OfficerManager {
   - officers: List<Officer *>
-  + add(officer: Officer *): void
-  + searchByName(name: String): Officer *
-  + showList(): void
+  - add(officer: Officer *): void
+  - searchByName(name: String): Officer *
+  - showList(): void
+  + addOfficer(): void
+  + showOfficerList(): void;
+  + searchOfficerByName(): void;
+  + getValidIntInput(min: Integer, max: Integer): Integer
 }
+
 
 Officer <|-- Engineer
 Officer <|-- Worker

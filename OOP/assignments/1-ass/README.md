@@ -14,7 +14,3 @@
   - Search for officers by their full name.
   - Display information about the list of officers.
   - Exit the program.
-
-# Class Diagram
-
-![Class Diagram](doc/class-diagram.png)
