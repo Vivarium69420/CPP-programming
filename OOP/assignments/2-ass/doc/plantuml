@@ -1,0 +1,71 @@
+@startuml
+
+enum doc_t <<enumeration>> {
+  DOCUMENT
+  BOOK
+  MAGAZINE
+  NEWSPAPER
+}
+
+LibraryManager o-- "0..1" Document 
+
+class LibraryManager {
+  - documents: list<shared_ptr<Document>>
+  - addDoc(doc: shared_ptr<Document>): void
+  - deleteDoc(docId: String): void
+  - searchByDocType(type: doc_t): void
+  - showList(): void
+  - getValidIntInput(min: int, max: int): int
+  + addDocument(): void
+  + deleteDocument(): void
+  + searchDocument(): void
+  + showDocumentList(): void
+}
+
+class Document {
+  - documentId: String
+  - publisher: String
+  - copiesCount: Integer
+  + getDocId(): String
+  + setDocId(id: String): void
+  + getPublisher(): String
+  + setPublisher(ps: String): void
+  + getCopiesCount (): String
+  + setCopiesCount (cnt: Integer): void
+  + display(): void {virtual}
+  + getType(): doc_t {virtual}
+}
+
+class Book extends Document {
+  - authorName: String
+  - pageCount: Integer
+  + getAuthorName(): String
+  + setAuthorName(n: String): void
+  + getPageCount(): Integer
+  + setPageCount(cnt: Integer): void
+  + display(): void {override}
+  + getType(): doc_t {override}
+}
+
+class Magazine extends Document {
+  - issueNumber: Integer
+  - publicationMonth: Integer
+  + getIssueNumber(): Integer
+  + setIssueNumber(in: Integer): void
+  + getPublishcationMonth(): Integer
+  + setPublishcationMonth(pm: Integer): void
+  + display(): void {override}
+  + getType(): doc_t {override}
+}
+
+class Newpaper extends Document {
+  - publicationDay: Integer
+  + getPublishcationDay(): Integer
+  + setPublishcationDay(pd: Integer): void
+  + display(): void {override}
+  + getType(): doc_t {override}
+}
+
+Document ..> doc_t
+
+@enduml

@@ -1,0 +1,74 @@
+@startuml
+
+enum group_t <<enumeration>> {
+    A
+    B
+    C
+}
+
+class Candidate {
+    - registrationNumber : String
+    - fullName : String
+    - address : String
+    - priorityLevel : int
+    - examGroup : shared_ptr<ExamGroup>
+    + getRegistrationNumber() : String
+    + setRegistrationNumber(regNum : String) : void
+    + getFullName() : String
+    + setFullName(name : String) : void
+    + getAddress() : String
+    + setAddress(addr : String) : void
+    + getPriorityLevel() : int
+    + setPriorityLevel(level : int) : void
+    + getExamGroup() : shared_ptr<ExamGroup>
+    + setExamGroup(group : shared_ptr<ExamGroup>) : void
+    + display() : void
+}
+
+class ExamGroup {
+    - exams : vector<String>
+    + getExams() : const vector<String>&
+    + getGroup() : group_t
+}
+
+class GroupA {
+    + GroupA()
+    + getGroup() : group_t
+}
+
+class GroupB {
+    + GroupB()
+    + getGroup() : group_t
+}
+
+class GroupC {
+    + GroupC()
+    + getGroup() : group_t
+}
+
+class EnrollmentManager {
+    - candidates : list<shared_ptr<Candidate>>
+    - examGroups : list<shared_ptr<ExamGroup>>
+    + EnrollmentManager()
+    + ~EnrollmentManager()
+    - add(candidate : shared_ptr<Candidate>) : void
+    - display() : void
+    - searchByCandidateRegistrationNumber(regNumber : String) : void
+    - findExamGroup(group : group_t) : shared_ptr<ExamGroup>
+    + displayExamGroup(group : group_t) : void
+    + getValidIntInput(min : int, max : int) : int
+    + addCandidate() : void
+    + searchCandidate() : void
+    + showCandidateList() : void
+    + showExamGroup() : void
+    + addExamGroup(examGroup : shared_ptr<ExamGroup>) : void
+}
+
+Candidate o-- ExamGroup
+GroupA --|> ExamGroup
+GroupB --|> ExamGroup
+GroupC --|> ExamGroup
+EnrollmentManager o-- Candidate
+ExamGroup ..> group_t
+
+@enduml
